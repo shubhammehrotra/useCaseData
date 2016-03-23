@@ -1,15 +1,10 @@
-'''
-Created on 3 Feb 2016
-
-@author: sapna
-'''
 import nltk
 import csv
 import re
 import sys
-
 from pip._vendor.distlib.util import CSVReader
-from nltk.tokenize import word_tokenize    
+from nltk.tokenize import word_tokenize   
+
 def sentenceSplit(text):
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
     sentences = tokenizer.tokenize(text)
@@ -20,6 +15,7 @@ def taggingNLTK(self, text):
     for sent in sentences:
         text = word_tokenize(sent)
         tagged_sent = nltk.pos_tag(text)
+        
 fileNames = ["abortion","creation","gayRights","god","guns","healthcare"]
 for i in range(len(fileNames)):
     fileRead = open("C:/Python34/mergeDebates/" + fileNames[i] + ".csv","rU")
@@ -32,7 +28,6 @@ for i in range(len(fileNames)):
             #print(text)
             try:
                 sentences = sentenceSplit(text)
-                #print(sentences[0])
                 id2 = 1
                 for sentence in sentences:
                     #print(sentence)
